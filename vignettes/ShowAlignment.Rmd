@@ -1,0 +1,59 @@
+---
+title: "Show the alignment of a mapped read"
+autor: "Erica Pirotta"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Show the alignment of a mapped read}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r style, echo = FALSE, results = 'asis'}
+library(BiocStyle)
+```
+
+```{r, echo = FALSE}
+library(knitr)
+```
+
+```{r, echo = FALSE}
+library(BSgenome.Hsapiens.UCSC.hg38)
+```
+
+```{r setup}
+library(ShowAlignment)
+```
+
+
+# Introduction 
+This package read in a BAM/SAM file and considering a specific read entry and the corresponding reference genome it allow to show the precise alignment of that read according to the CIGAR string. 
+Also introducing a dash where an insertion or deletion occurs. 
+
+## Upload the BAM file 
+```{r}
+bam_file <- system.file('extdata', 'example.bam', package="ShowAlignment")
+bam_df <- upload_bam(bam_file)
+head(bam_df)
+```
+
+## Upload the SAM file 
+```{r}
+sam_file <- system.file('extdata', 'example.sam', package="ShowAlignment")
+sam_df <- upload_sam(sam_file)
+head(sam_df)
+```
+
+## Show the alignment 
+```{r}
+file <- system.file('extdata', 'example.bam', package="ShowAlignment")
+show_alignment("GCATAACCCCTCTCTGAATCAATGAATCGCAAATCAGCCACTTTAATTAAGCTAAGCCCTTACTAGACCAATGGGACTTAAACCCGCAAACACTTAGTTAA",file, Hsapiens)
+```
+
