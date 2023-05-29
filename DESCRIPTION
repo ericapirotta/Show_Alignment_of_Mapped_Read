@@ -1,0 +1,27 @@
+Package: ShowAlignment
+Title: Show the alignment of a mapped read
+Version: 0.99.0
+Authors@R: c(
+    person(given = "Erica",
+           family = "Pirotta",
+           role = c("aut", "cre"),
+           email = "erica.pirotta@mail.polimi.it")
+    )
+Description: This package reads in a BAM/SAM file, taking a specific read entry 
+    and the reference genome and show the precise alignment to the reference 
+    genome according to the CIGAR string of the read. 
+    In particular here are reported 3 functions: the main one that show this 
+    alignment, one that allow to read a BAM file and convert it into a data frame 
+    and another that read a SAM file.
+License: GPL-2
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
+Depends: R(>= 4.1.0)
+Imports: Rsamtools, data.table, GenomicAlignments, Biostrings, IRanges, utils, BSgenome.Hsapiens.UCSC.hg38
+Suggests: BSgenome, knitr, rmarkdown, BiocStyle, testthat
+VignetteBuilder: knitr
+biocViews: Normalization, Alignment
+
+
+
